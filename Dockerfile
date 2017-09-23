@@ -18,6 +18,7 @@ RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y \
   dirmngr \
   libcurl4-openssl-dev \
   libicu-dev \
+  libpq-dev \
   libsqlite3-dev \
   libxml2 \
   wget \
