@@ -38,10 +38,10 @@ RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y \
   && tar xzvf $SWIFT_SNAPSHOT-$UBUNTU_VERSION.tar.gz --strip-components=1 \
   && rm $SWIFT_SNAPSHOT-$UBUNTU_VERSION.tar.gz \
   && rm $SWIFT_SNAPSHOT-$UBUNTU_VERSION.tar.gz.sig \
-  # && find /usr/lib/swift/linux -type f ! -name '*.so' -delete \
-  # && rm -rf /usr/lib/swift/linux/*/ \
+  && find /usr/lib/swift/linux -type f ! -name '*.so' -delete \
+  && rm -rf /usr/lib/swift/linux/*/ \
   && chmod -R go+r /usr/lib/swift \
-  # && apt-get remove -y gcc cpp sgml-base icu-devtools gcc-4.8 cpp-4.8 libc6-dev binutils manpages-dev manpages wget pkg-config perl gnupg2 dirmngr \
+  && apt-get remove -y gcc cpp sgml-base icu-devtools gcc-4.8 cpp-4.8 libc6-dev binutils manpages-dev manpages wget pkg-config perl gnupg2 dirmngr \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
