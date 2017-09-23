@@ -14,6 +14,7 @@ WORKDIR ${WORK_DIR}
 
 # Linux OS utils and libraries and set clang 3.8 as default
 RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y \
+  pkg-config \
   gnupg2 \
   dirmngr \
   libcurl4-openssl-dev \
