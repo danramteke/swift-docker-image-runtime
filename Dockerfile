@@ -22,6 +22,7 @@ RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y \
   libpq-dev \
   libsqlite3-dev \
   libxml2 \
+  libbsd-dev \
   wget \
   gcc-4.8 \
   cpp-4.8 \
