@@ -3,8 +3,8 @@ FROM ubuntu:16.10
 USER root
 
 # Set environment variables for image
-ENV SWIFT_SNAPSHOT swift-4.0-RELEASE
-ENV SWIFT_SNAPSHOT_LOWERCASE swift-4.0-release
+ENV SWIFT_SNAPSHOT swift-4.0.2-RELEASE
+ENV SWIFT_SNAPSHOT_LOWERCASE swift-4.0.2-release
 ENV UBUNTU_VERSION ubuntu16.10
 ENV UBUNTU_VERSION_NO_DOTS ubuntu1610
 ENV WORK_DIR /
@@ -15,17 +15,18 @@ WORKDIR ${WORK_DIR}
 # Linux OS utils and libraries and set clang 3.8 as default
 RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y \
   pkg-config \
+  cpp-4.8 \
+  gcc-4.8 \
   gnupg2 \
   dirmngr \
+  libbsd-dev \
   libcurl4-openssl-dev \
   libicu-dev \
   libpq-dev \
   libsqlite3-dev \
   libxml2 \
-  libbsd-dev \
   wget \
-  gcc-4.8 \
-  cpp-4.8 \
+  zlib1g-dev \
   && apt-get clean \
   && wget -q https://swift.org/builds/$SWIFT_SNAPSHOT_LOWERCASE/$UBUNTU_VERSION_NO_DOTS/$SWIFT_SNAPSHOT/$SWIFT_SNAPSHOT-$UBUNTU_VERSION.tar.gz \
     https://swift.org/builds/$SWIFT_SNAPSHOT_LOWERCASE/$UBUNTU_VERSION_NO_DOTS/$SWIFT_SNAPSHOT/$SWIFT_SNAPSHOT-$UBUNTU_VERSION.tar.gz.sig \
