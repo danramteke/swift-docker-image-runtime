@@ -14,4 +14,7 @@ RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y \
   libxml2 \
   wget \
   zlib1g-dev \
+  libicu55 \
+  libbsd0 \
+  libatomic1 \
   && apt-get clean 
