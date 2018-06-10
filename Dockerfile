@@ -15,6 +15,7 @@ RUN apt-get update && apt-get dist-upgrade -y && apt-get install -y \
   wget \
   zlib1g-dev \
   libicu55 \
+  libicu52 \
   libbsd0 \
   libatomic1 \
   && apt-get clean 
