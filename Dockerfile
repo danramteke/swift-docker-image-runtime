@@ -10,6 +10,8 @@ RUN apt-get update && apt-get dist-upgrade -y && DEBIAN_FRONTEND=noninteractive 
   pkg-config \
   gnupg2 \
   dirmngr \
+  gnupg2 \
+  libatomic1 \
   libbsd-dev \
   libcurl4-openssl-dev \
   libicu-dev \
