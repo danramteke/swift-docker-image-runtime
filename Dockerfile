@@ -1,6 +1,6 @@
-FROM ubuntu:18.04
+FROM ubuntu:16.04
 
-ENV SWIFT_TAR_URL https://swift.org/builds/swift-4.2-release/ubuntu1804/swift-4.2-RELEASE/swift-4.2-RELEASE-ubuntu18.04.tar.gz
+ENV SWIFT_TAR_URL https://swift.org/builds/swift-4.2-release/ubuntu1604/swift-4.2-RELEASE/swift-4.2-RELEASE-ubuntu16.04.tar.gz
 
 ENV WORK_DIR /
 WORKDIR ${WORK_DIR}
@@ -17,7 +17,7 @@ RUN apt-get update && apt-get dist-upgrade -y && DEBIAN_FRONTEND=noninteractive 
   libicu-dev \
   libsqlite3-dev \
   libxml2 \
-  libicu60 \
+  libicu55 \
   libbsd0 \
   libbsd-dev \
   libatomic1 \
