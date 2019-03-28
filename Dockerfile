@@ -16,6 +16,7 @@ RUN apt-get update && apt-get dist-upgrade -y && DEBIAN_FRONTEND=noninteractive 
   libbsd0 \
   libcurl4-openssl-dev \
   libicu-dev \
+  libicu57 \
   libsqlite3-dev \
   libxml2 \
   openssl \
