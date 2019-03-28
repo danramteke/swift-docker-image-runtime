@@ -43,6 +43,6 @@ RUN curl -fsSL $SWIFT_TAR_URL -o swift.tar.gz \
   && chmod -R go+r /usr/lib/swift \
   && apt-get remove -y gcc cpp icu-devtools libc6-dev binutils manpages-dev manpages  pkg-config perl \
   && rm -rf /var/lib/apt/lists/* \
-  && rm -r "$GNUPGHOME" 
+  && rm -rf "$GNUPGHOME" 
 
 CMD /bin/bash
