@@ -1,27 +1,26 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
-ENV SWIFT_TAR_URL https://swift.org/builds/swift-4.2-release/ubuntu1604/swift-4.2-RELEASE/swift-4.2-RELEASE-ubuntu16.04.tar.gz
+ENV SWIFT_TAR_URL https://swift.org/builds/swift-5.0-release/ubuntu1804/swift-5.0-RELEASE/swift-5.0-RELEASE-ubuntu18.04.tar.gz
 
 ENV WORK_DIR /
 WORKDIR ${WORK_DIR}
 
 RUN apt-get update && apt-get dist-upgrade -y && DEBIAN_FRONTEND=noninteractive apt-get install -y \
-  pkg-config \
-  gnupg2 \
   curl \
   dirmngr \
   gnupg2 \
   libatomic1 \
+  libatomic1 \
   libbsd-dev \
+  libbsd-dev \
+  libbsd0 \
   libcurl4-openssl-dev \
   libicu-dev \
+  libicu55 \
   libsqlite3-dev \
   libxml2 \
-  libicu55 \
-  libbsd0 \
-  libbsd-dev \
-  libatomic1 \
   openssl \
+  pkg-config \
   tzdata \
   zlib1g-dev \
   && apt-get clean 
@@ -29,14 +28,11 @@ RUN apt-get update && apt-get dist-upgrade -y && DEBIAN_FRONTEND=noninteractive 
 RUN curl -fsSL $SWIFT_TAR_URL -o swift.tar.gz \
   && curl -fsSL $SWIFT_TAR_URL.sig -o swift.tar.gz.sig \
   && export GNUPGHOME="$(mktemp -d)" \
+  && echo "disable-ipv6" >> $GNUPGHOME/dirmgngr.conf \
   && gpg --keyserver ha.pool.sks-keyservers.net  \
-      --recv-keys \
-      '7463 A81A 4B2E EA1B 551F  FBCF D441 C977 412B 37AD' \
-      '1BE1 E29A 084C B305 F397  D62A 9F59 7F4D 21A5 6D5F' \
-      'A3BA FD35 56A5 9079 C068  94BD 63BC 1CFE 91D3 06C6' \
-      '5E4D F843 FB06 5D7F 7E24  FBA2 EF54 30F0 71E1 B235' \
-      '8513 444E 2DA3 6B7C 1659  AF4D 7638 F1FB 2B2B 08C4' \
-  && gpg --keyserver ha.pool.sks-keyservers.net --refresh-keys  \
+  --recv-keys \
+  'A62A E125 BBBF BB96 A6E0  42EC 925C C1CC ED3D 1561' \
+  && gpg --keyserver ha.pool.sks-keyservers.net --refresh-keys \
   && gpg --batch --verify swift.tar.gz.sig swift.tar.gz \
   && tar xzf swift.tar.gz --strip-components=1 \
   && rm swift.tar.gz \
