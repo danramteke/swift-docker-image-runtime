@@ -38,7 +38,7 @@ RUN curl -fsSL $SWIFT_TAR_URL -o swift.tar.gz \
   && tar xzf swift.tar.gz --strip-components=1 \
   && rm swift.tar.gz \
   && rm swift.tar.gz.sig \
-  && find /usr/lib/swift/linux -type f ! -name '*.so' -delete \
+  && find /usr/lib/swift/linux -type f ! -name '*.so*' -delete \
   && rm -rf /usr/lib/swift/linux/*/ \
   && chmod -R go+r /usr/lib/swift \
   && apt-get remove -y gcc cpp icu-devtools libc6-dev binutils manpages-dev manpages  pkg-config perl \
