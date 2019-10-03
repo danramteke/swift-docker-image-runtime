@@ -22,6 +22,7 @@ RUN apt-get update && apt-get dist-upgrade -y && DEBIAN_FRONTEND=noninteractive 
   openssl \
   pkg-config \
   tzdata \
+  xz-utils \
   zlib1g-dev \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
